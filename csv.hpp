@@ -13,7 +13,7 @@ namespace csv {
     boost::tokenizer<boost::escaped_list_separator<char>> tok(line);
 
     std::vector<std::string> row;
-    std::transform(tok.begin(), tok.end(), std::inserter(row, row.begin()), [](std::string s){ return s;});
+    std::copy(tok.begin(), tok.end(), std::back_inserter(row));
 
     return row;
   }

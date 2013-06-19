@@ -82,7 +82,7 @@ int main(void) {
   while(std::getline(std::cin,line)) {
     auto row = csv::parse_line(line);
     std::vector<item_type> item_vector;
-    std::transform(row.begin() + 1, row.end(), std::inserter(item_vector, item_vector.begin()),
+    std::transform(row.begin() + 1, row.end(), std::back_inserter(item_vector),
         [](std::string& s){ return std::atol(s.c_str()); });
     item_vector.erase(std::remove(item_vector.begin(), item_vector.end(), 0), item_vector.end());
     users.push_back(item_vector);
